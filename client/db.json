@@ -1,0 +1,39 @@
+{
+  "ideas": [
+    {
+      "id": 3,
+      "title": "See the Redwood Forest",
+      "image": "https://olemahouse.com/wp-content/uploads/2020/04/California-Redwoods.jpg",
+      "category": "Nature",
+      "likes": 0
+    },
+    {
+      "id": 4,
+      "title": "Relax in Hot Springs",
+      "image": "https://cdn.5280.com/2017/06/Hot-Springs_Larry-Pierce-Steamboat-Ski-Resort.jpg",
+      "category": "Nature",
+      "likes": 0
+    },
+    {
+      "id": 5,
+      "title": "Meet a Celebrity",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Hollywood_Sign_%28Zuschnitt%29.jpg/1200px-Hollywood_Sign_%28Zuschnitt%29.jpg",
+      "category": "Entertainment",
+      "likes": 0
+    },
+    {
+      "id": 6,
+      "title": "Go to a Music Festival",
+      "image": "https://image.jimcdn.com/app/cms/image/transf/dimension=1190x10000:format=jpg/path/sa6549607c78f5c11/image/i82f8384a1348ab84/version/1554202007/tomorrowland-best-summer-music-festivals-europe.jpg",
+      "category": "Entertainment",
+      "likes": 0
+    },
+    {
+      "title": "Swim with Sharks",
+      "image": "https://media.cntraveler.com/photos/555e12a2d9889c6c03abc6a9/master/pass/tiger-beach-bahamas-tiger-shark-tout.jpg",
+      "category": "adrenaline junkie",
+      "likes": 0,
+      "id": 7
+    }
+  ]
+}
