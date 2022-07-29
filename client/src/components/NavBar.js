@@ -14,12 +14,15 @@ function NavBar() {
           <Link className="button" exact to="/ideas">
             Browse Ideas
           </Link>
+          <Link className="button" exact to="/login">
+            Login
+          </Link>
           <Link className="button" exact to="/ideas/new">
             Add an Idea!
           </Link>
-          {/* <Link className="button" exact to="/category">
-            Categories
-          </Link> */}
+          <Link className="button" exact to="/">
+            Home
+          </Link>
         </div>
       </nav>
       <Outlet />

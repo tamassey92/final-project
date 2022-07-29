@@ -34,6 +34,13 @@
       "category": "adrenaline junkie",
       "likes": 0,
       "id": 7
+    },
+    {
+      "title": "Skydiving",
+      "image": "https://www.skydivecsc.com/hubfs/IMG_8804.jpg",
+      "category": "adrenaline junkie",
+      "likes": 0,
+      "id": 8
     }
   ]
 }

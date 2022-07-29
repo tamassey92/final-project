@@ -4,7 +4,6 @@ function BucketListForm({ onAddIdea }) {
     const [formData, setFormData] = useState({
         title: "",
         image: "",
-        category: "",
     });
 
     const handleChange = (e) => {
@@ -23,14 +22,13 @@ function BucketListForm({ onAddIdea }) {
           body: JSON.stringify({ ...formData, likes: 0 }),
         };
 
-        fetch("http://localhost:3000/ideas", configObj)
+        fetch("/ideas", configObj)
         .then((resp) => resp.json())
       .then((idea) => {
         onAddIdea(idea);
         setFormData({
           title: "",
           image: "",
-          category: "",
         });
       });
   };
@@ -48,20 +46,6 @@ function BucketListForm({ onAddIdea }) {
             onChange={handleChange}
             value={formData.title}
           />
-
-  
-          <label htmlFor="category">Category</label>
-          <select
-            name="category"
-            id="category"
-            onChange={handleChange}
-            value={formData.category}
-          >
-            <option value="category">Pick a Category</option>
-            <option value="adrenaline junkie">Adrenaline Junkie</option>
-            <option value="nature">Nature</option>
-            <option value="entertainment">Entertainment</option>
-          </select>
   
           <label htmlFor="image">Image URL</label>
           <input

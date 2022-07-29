@@ -38,12 +38,6 @@ body {
   min-height: 100vh;
 }
 
-.App.light {
-  --color: var(--black);
-  --background: var(--white);
-  --primary: var(--dark-turquoise);
-}
-
 section {
   padding: 2rem;
   display: flex;
@@ -106,6 +100,16 @@ a:hover {
 }
 
 /* header */
+
+header h1 {
+  font-size: 70px;
+  font-weight: 600;
+  background-image: linear-gradient(to left, #553c9a, #b393d3);
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
 header {
   padding: 1rem;
   display: flex;
