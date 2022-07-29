@@ -11,17 +11,17 @@ function NavBar() {
           </h1>
           </Link> */}
         <div className="navigation">
+        <Link className="button" exact to="/">
+            Home
+          </Link>
           <Link className="button" exact to="/ideas">
             Browse Ideas
           </Link>
-          <Link className="button" exact to="/login">
+          {/* <Link className="button" exact to="/login">
             Login
-          </Link>
+          </Link> */}
           <Link className="button" exact to="/ideas/new">
             Add an Idea!
-          </Link>
-          <Link className="button" exact to="/">
-            Home
           </Link>
         </div>
       </nav>

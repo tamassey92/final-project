@@ -14,24 +14,21 @@ const handleDeleteClick = () => {
     method: "DELETE",
   });
   onDeleteIdea(idea)
-    // .then((resp) => resp.json())
-    // .then(onDeleteIdea(idea));
 };
 
 
 
     return (
         <li className="card">
+               <section className="details">
+        <h4>{title}</h4>
+      </section>
         <figure className="image">
           <img src={image} alt={title} />
           {/* <button onClick={handleLike} className="claps">
             Like{likeCount}
           </button> */}
         </figure>
-
-        <section className="details">
-        <h4>{title}</h4>
-      </section>
   
         <footer className="extra">
           <div className="manage">

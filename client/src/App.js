@@ -12,7 +12,7 @@ import Login from "./components/Login"
 function App() {
   const [ideas, setIdeas] = useState([]);
   const [errors, setErrors] = useState(false)
-  const [cart, setCart] = useState([])
+  // const [cart, setCart] = useState([])
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
@@ -71,11 +71,8 @@ if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={s
   return (
     <div className="App">
            <header>
-        <h1>Weclome to Your BucketList Adventure!</h1>
+        <h1>The Bucket List</h1>
         </header>
-          {/* <h1 className="branding">
-            Build Your BucketList
-          </h1> */}
           <NavBar />
 <Routes>
 {/* <Route path="/" element={<NavBar />} /> */}

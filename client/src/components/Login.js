@@ -1,3 +1,4 @@
+import { flexbox } from '@mui/system'
 import React, {useState} from 'react'
 
 function Login({setUser,setIsAuthenticated}) {
@@ -32,19 +33,20 @@ function Login({setUser,setIsAuthenticated}) {
           }
         })
     }
-    return (
-      
+    return ( 
       <> 
-      <h1>The Bucket List</h1>
-      <h1>Login</h1>
+          <header>
+        <h1>The Bucket List</h1>
+        </header>
+      <h1 style={{color: 'white', lineHeight : 5, padding: 10 }}>Login</h1>
       <form onSubmit={onSubmit}>
-      <label>
+      <label className="form-field">
         Username
  
         <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
       </label>
-      <label>
-       Password
+      <label className="form-field">
+       Password  
   
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </label>
