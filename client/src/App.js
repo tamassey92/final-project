@@ -6,16 +6,16 @@ import NavBar from "./components/NavBar"
 import BucketList from "./components/BucketList"
 import BucketListForm from "./components/BucketListForm"
 import Login from "./components/Login"
-// import Home from "./components/Home"
-// import Category from "./components/Category"
+
 
 function App() {
   const [ideas, setIdeas] = useState([]);
-  const [errors, setErrors] = useState(false)
-  // const [cart, setCart] = useState([])
+  const [comments, setComments] = useState([]);
+
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [user, setUser] = useState(null);
+
 
   useEffect(() => {
     fetch('/authorized_user')
@@ -42,10 +42,17 @@ fetch("/ideas")
 .then((ideas) => setIdeas(ideas));
 }, []);
 
+useEffect(() => {
+  fetch("/comments")
+  .then((resp) => resp.json())
+  .then((comments) => setComments(comments));
+  }, []);
 
 const onAddIdea = (newIdea) => {
   setIdeas((ideas) => [...ideas, newIdea]);
 };
+
+
 
 // const onUpdateIdea = (updatedIdea) => {
 //   const updatedIdeas = ideas.map((originalIdea) => {
@@ -65,6 +72,8 @@ const onDeleteIdea = (deletedIdea) => {
   setIdeas(updatedIdeas);
 };
 
+
+
 if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={setIsAuthenticated} setUser={setUser} />;
 
 
@@ -76,7 +85,7 @@ if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={s
           <NavBar />
 <Routes>
 {/* <Route path="/" element={<NavBar />} /> */}
-  <Route path="/ideas" element={<BucketList ideas={ideas} onDeleteIdea={onDeleteIdea}/>} />
+  <Route path="/ideas" element={<BucketList comments={comments} ideas={ideas} onDeleteIdea={onDeleteIdea}/>} />
   <Route path="/ideas/new" element={<BucketListForm onAddIdea={onAddIdea}/>} />
   <Route path="/login" element={<Login />} />
 </Routes>

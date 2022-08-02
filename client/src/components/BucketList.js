@@ -3,12 +3,14 @@ import { useState } from "react";
 
  
 
-function BucketList({ ideas, onDeleteIdea }) {
+function BucketList({ comments, ideas, onDeleteIdea }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const searchResults = ideas.filter((idea) => {
     return idea.title.toLowerCase().includes(searchQuery.toLowerCase());
   });
+
+
 
 
   const ideaItems = searchResults.map((idea) => {
@@ -18,6 +20,8 @@ function BucketList({ ideas, onDeleteIdea }) {
         key={idea.id}
         idea={idea}
         onDeleteIdea={onDeleteIdea}
+        comments={comments}
+
       />
     );
   });

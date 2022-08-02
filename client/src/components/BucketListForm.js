@@ -19,7 +19,7 @@ function BucketListForm({ onAddIdea }) {
             "Content-Type": "application/json",
             Accept: "application/json",
           },
-          body: JSON.stringify({ ...formData, likes: 0 }),
+          body: JSON.stringify({ ...formData}),
         };
 
         fetch("/ideas", configObj)

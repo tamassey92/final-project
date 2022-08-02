@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
 
         def show
             comment = Comment.find(params[:id])
-            render json: comment, include: [:idea, :user]
+            render json: comment, include: [:idea]
         end 
 
 

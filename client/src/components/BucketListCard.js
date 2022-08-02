@@ -1,12 +1,10 @@
-// import { useState } from "react";
+import React, { useState } from "react";
 
 
-function BucketListCard({ idea, onDeleteIdea }) {
+function BucketListCard({ comments, idea, onDeleteIdea }) {
+
 const { id, title, image } = idea;
 
-// const [likeCount, setLikeCount] = useState(0);
-
-// const handleLike = (likeCount) => setLikeCount(likeCount + 1);
 
 
 const handleDeleteClick = () => {
@@ -25,9 +23,13 @@ const handleDeleteClick = () => {
       </section>
         <figure className="image">
           <img src={image} alt={title} />
-          {/* <button onClick={handleLike} className="claps">
-            Like{likeCount}
-          </button> */}
+          <ul>
+        {idea.comments.map((comment) => (
+          <li key={comment.id}>
+            {comment.description}
+          </li>
+        ))}
+      </ul>
         </figure>
   
         <footer className="extra">
