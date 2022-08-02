@@ -3,7 +3,7 @@ class ApplicationController < ActionController::API
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
 
   include ActionController::Cookies
-
+before_action :is_authorized?
   def current_user
     User.find_by(id: session[:current_user])
 end

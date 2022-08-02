@@ -11,6 +11,17 @@ import Login from "./components/Login"
 function App() {
   const [ideas, setIdeas] = useState([]);
 
+  const updateIdeaWithNewComment = (comment) => {
+    setIdeas(ideas.map(idea => {
+      //if not updating, return idea
+      // else return updated idea
+      if(idea.id === comment.idea_id){
+        return {...idea, comments: [...idea.comments, comment]}
+      } else {
+        return idea
+      }
+    }))
+  }
 
 
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -25,13 +36,14 @@ function App() {
         .then((user) => {
           setIsAuthenticated(true);
           setUser(user);
+          fetch('/ideas')
+    .then(res => res.json())
+    .then(setIdeas);
         });
       }
     });
 
-    fetch('/ideas')
-    .then(res => res.json())
-    .then(setIdeas);
+    
 
   },[]);
 
@@ -70,7 +82,7 @@ if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={s
           <NavBar />
 <Routes>
 {/* <Route path="/" element={<NavBar />} /> */}
-  <Route path="/ideas" element={<BucketList ideas={ideas} onDeleteIdea={onDeleteIdea}/>} setUser={setUser} user={user.id}/>
+  <Route path="/ideas" element={<BucketList ideas={ideas} onDeleteIdea={onDeleteIdea} updateIdeaWithNewComment={updateIdeaWithNewComment}/>} />
   <Route path="/ideas/new" element={<BucketListForm onAddIdea={onAddIdea}/>} />
   <Route path="/login" element={<Login />} />
 </Routes>

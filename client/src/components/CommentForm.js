@@ -6,7 +6,6 @@ function CommentForm({ onAddComment, ideaId }){
         idea_id: ideaId,
         user_id: 10,
     });
-// const [description, setDescription] = useState("");
 
 const handleChange = (e) => {
     const { name, value } = e.target;
@@ -14,11 +13,6 @@ const handleChange = (e) => {
   };
 function handleSubmit(e) {
     e.preventDefault();
-    // const formData = {
-    //   description: "",
-    //   idea_id: ideaId,
-    //   user_id: 10,
-    // };
     fetch("/comments", {
       method: "POST",
       headers: {

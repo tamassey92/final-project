@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :ideas
 
   post '/login', to: 'sessions#login'
+  get '/authorized_user', to: 'sessions#show'
 
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

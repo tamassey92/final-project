@@ -2,16 +2,10 @@ import React, { useState, useEffect } from "react";
 import CommentForm from "./CommentForm"
 
 
-function BucketListCard({ idea, onDeleteIdea, user, setUser }) {
-  const [comments, setComments] = useState([]);
+function BucketListCard({ idea, onDeleteIdea, user, setUser, updateIdeaWithNewComment }) {
+ 
 
 const { id, title, image } = idea;
-
-useEffect(() => {
-  fetch("/comments")
-  .then((resp) => resp.json())
-  .then((comments) => setComments(comments));
-  }, []);
 
 const handleDeleteClick = () => {
   fetch(`/ideas/${id}`, {
@@ -20,9 +14,6 @@ const handleDeleteClick = () => {
   onDeleteIdea(idea)
 };
 
-const onAddComment = (newComment) => {
-  setComments((comments) => [...comments, newComment]);
-};
 
 
 
@@ -47,7 +38,7 @@ const onAddComment = (newComment) => {
             <button onClick={handleDeleteClick}>
               Delete
             </button>
-            <CommentForm onAddComment={onAddComment} ideaId={id} user={user} setUser={setUser} />
+            <CommentForm onAddComment={updateIdeaWithNewComment} ideaId={id} user={user} setUser={setUser} />
           </div>
         </footer>
       </li>
