@@ -1,17 +1,24 @@
 import { useState } from "react";
 
-function CommentForm({ onAddComment, ideaId, user }){
-const [description, setDescription] = useState("");
-// const [errors, setErrors] = useState([]);
+function CommentForm({ onAddComment, ideaId }){
+    const [formData, setFormData] = useState({
+        description: "",
+        idea_id: ideaId,
+        user_id: 10,
+    });
+// const [description, setDescription] = useState("");
 
-
+const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((formData) => ({ ...formData, [name]: value }));
+  };
 function handleSubmit(e) {
     e.preventDefault();
-    const formData = {
-      description: "",
-      idea_id: ideaId,
-      user_id: user,
-    };
+    // const formData = {
+    //   description: "",
+    //   idea_id: ideaId,
+    //   user_id: 10,
+    // };
     fetch("/comments", {
       method: "POST",
       headers: {
@@ -20,7 +27,11 @@ function handleSubmit(e) {
       body: JSON.stringify(formData),
     }).then((r) =>  r.json())
     .then((comment) => {
-          setDescription("");
+          setFormData({
+            description: "",
+            idea_id: ideaId,
+            user_id: 10,
+          });
           onAddComment(comment);
         });
       }
@@ -28,14 +39,15 @@ function handleSubmit(e) {
 
 
     return (
-    <form onSubmit={handleSubmit}>
+    <form autoComplete="off" onSubmit={handleSubmit}>
     <div>
       <input
         type="text"
         id="description"
+        name="description"
         placeholder="add comment"
-        value={description}
-        onChange={(e) => setDescription(e.target.value)}
+        onChange={handleChange}
+        value={formData.description}
       />
     </div>
     <button type="submit">Submit</button>

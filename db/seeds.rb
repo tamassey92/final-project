@@ -16,3 +16,4 @@ taylor = User.create!(username: "tamassey", password: "capitals")
 
 puts "Seeding Comments..."
 Comment.create!(description: "Go to KAABOO in San Diego!", user_id: taylor.id, idea_id: festival.id)
+Comment.create!(description: "I've always wanted to go!", user_id: taylor.id, idea_id: skydiving.id)

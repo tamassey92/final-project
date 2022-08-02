@@ -70,7 +70,7 @@ if (!isAuthenticated) return <Login error={'please login'} setIsAuthenticated={s
           <NavBar />
 <Routes>
 {/* <Route path="/" element={<NavBar />} /> */}
-  <Route path="/ideas" element={<BucketList ideas={ideas} onDeleteIdea={onDeleteIdea}/>} user={user}/>
+  <Route path="/ideas" element={<BucketList ideas={ideas} onDeleteIdea={onDeleteIdea}/>} setUser={setUser} user={user.id}/>
   <Route path="/ideas/new" element={<BucketListForm onAddIdea={onAddIdea}/>} />
   <Route path="/login" element={<Login />} />
 </Routes>

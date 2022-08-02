@@ -3,7 +3,7 @@ import { useState } from "react";
 
  
 
-function BucketList({ ideas, onDeleteIdea, user }) {
+function BucketList({ ideas, onDeleteIdea, user, setUser }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const searchResults = ideas.filter((idea) => {
@@ -20,6 +20,7 @@ function BucketList({ ideas, onDeleteIdea, user }) {
         idea={idea}
         onDeleteIdea={onDeleteIdea}
         user={user}
+        setUser={setUser}
       />
     );
   });
