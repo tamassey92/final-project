@@ -3,7 +3,7 @@ import { useState } from "react";
 
  
 
-function BucketList({ comments, ideas, onDeleteIdea }) {
+function BucketList({ ideas, onDeleteIdea, user }) {
   const [searchQuery, setSearchQuery] = useState("");
 
   const searchResults = ideas.filter((idea) => {
@@ -14,14 +14,12 @@ function BucketList({ comments, ideas, onDeleteIdea }) {
 
 
   const ideaItems = searchResults.map((idea) => {
-    console.log(ideas)
     return (
       <BucketListCard
         key={idea.id}
         idea={idea}
         onDeleteIdea={onDeleteIdea}
-        comments={comments}
-
+        user={user}
       />
     );
   });

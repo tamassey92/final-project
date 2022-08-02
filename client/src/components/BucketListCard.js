@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import CommentForm from "./CommentForm"
 
 
-function BucketListCard({ comments, idea, onDeleteIdea }) {
+function BucketListCard({ idea, onDeleteIdea, user }) {
+  const [comments, setComments] = useState([]);
 
 const { id, title, image } = idea;
 
-
+useEffect(() => {
+  fetch("/comments")
+  .then((resp) => resp.json())
+  .then((comments) => setComments(comments));
+  }, []);
 
 const handleDeleteClick = () => {
   fetch(`/ideas/${id}`, {
     method: "DELETE",
   });
   onDeleteIdea(idea)
+};
+
+const onAddComment = (newComment) => {
+  setComments((comments) => [...comments, newComment]);
 };
 
 
@@ -31,12 +41,13 @@ const handleDeleteClick = () => {
         ))}
       </ul>
         </figure>
-  
+
         <footer className="extra">
           <div className="manage">
             <button onClick={handleDeleteClick}>
               Delete
             </button>
+            <CommentForm onAddComment={onAddComment} ideaId={id} user={user} />
           </div>
         </footer>
       </li>
